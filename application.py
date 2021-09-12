@@ -41,7 +41,7 @@ def index():
 
         # difflib function from python libraries for getting close matches
         n = 3000
-        cutoff = 0.45
+        cutoff = 0.5
         matches = difflib.get_close_matches(search_word.lower(), text_words_lower, n, cutoff)
 
         # gets position of every word, via each line, including any other characters, in matches to send to html rendering

@@ -4,14 +4,14 @@ import string
 from flask import Flask, flash, redirect, render_template, request
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 # Ensure templates are auto-reloaded
-app.config["TEMPLATES_AUTO_RELOAD"] = True
-app.config["DEBUG"] = True
+application.config["TEMPLATES_AUTO_RELOAD"] = True
+application.config["DEBUG"] = True
 
 # route for main html page
-@app.route("/", methods = ['GET', 'POST'])
+@application.route("/", methods = ['GET', 'POST'])
 def index():
     if request.method == 'GET':
         return render_template('index.html')
@@ -56,7 +56,7 @@ def index():
         return render_template('index.html', match = match_positions, search_word = search_word)
 
 # new route for finnegans wake hyperlinked text
-@app.route("/finneganswake", methods = ['GET'])
+@application.route("/finneganswake", methods = ['GET'])
 def finneganswake():
     return render_template('finneganswake.html')
 
